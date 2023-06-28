@@ -74,9 +74,9 @@ class MouseControls:
 
 class KeyControl(Control):
 
-    def __int__(self, gesture, handedness, key):
+    def __init__(self, gesture, handedness, key):
         super().__init__(
-            pinch.middle,
+            gesture,
             handedness,
             startAction=lambda *args: key.press(),
             endAction=lambda *args: key.release()

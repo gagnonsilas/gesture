@@ -27,8 +27,6 @@ pTime = 0
 cTime = 0
 
 
-
-
 while True:
     success, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -47,8 +45,8 @@ while True:
                     cv2.putText(img, str(idl), (cx, cy), cv2.FONT_HERSHEY_PLAIN, 1, (255, 170, 20), 1)
             for i in control.MouseControls.listed:
                 i.update(results.multi_hand_landmarks[idh].landmark, hand_handedness.classification[0].index)
-            # for i in control.ControlScemeA.listed:
-            #     i.update(results.multi_hand_landmarks[idh].landmark, hand_handedness.classification[0].index)
+            for i in control.ControlScemeA.listed:
+                i.update(results.multi_hand_landmarks[idh].landmark, hand_handedness.classification[0].index)
 
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
